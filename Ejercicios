@@ -1,0 +1,79 @@
+public int[][] multiplicarMatrices(int[][] matriz1, int[][] matriz2) {
+	    int filas1 = matriz1.length;
+	    int columnas1 = matriz1[0].length;
+	    int filas2 = matriz2.length;
+	    int columnas2 = matriz2[0].length;
+	    if (columnas1 != filas2) {
+	       System.out.println("Las matrices no son compatibles para multiplicarse");
+	    }
+	    int[][] resultado = new int[filas1][columnas2];
+	    for (int i = 0; i < filas1; i++) {
+	        for (int j = 0; j < columnas2; j++) {
+	            int suma = 0;
+	            for (int k = 0; k < columnas1; k++) {
+	                suma += matriz1[i][k] * matriz2[k][j];
+	            }
+	            resultado[i][j] = suma;
+	        }
+	    }
+	    return resultado;
+	}
+	
+	public int[][] transponerMatriz(int[][] matriz) {
+	    int numFilas = matriz.length;
+	    int numColumnas = matriz[0].length;
+	    // Creamos una nueva matriz con el número de columnas y filas invertidas
+	    int[][] matrizTranspuesta = new int[numColumnas][numFilas];
+	    for (int i = 0; i < numFilas; i++) {
+	        for (int j = 0; j < numColumnas; j++) {
+	            // Intercambiamos fila y columna
+	            matrizTranspuesta[j][i] = matriz[i][j];
+	        }
+	    }
+	    return matrizTranspuesta;
+	}
+	
+	public int sumaDiagonal(int[][] matriz) {
+	    int n = matriz.length;
+	    int suma = 0;
+	    for (int i = 0; i < n; i++) {
+	        suma += matriz[i][i];
+	    }
+	    return suma;
+	}   
+	
+	public int encontrarMaximo(int[][] matriz) {
+	    int maximo = Integer.MIN_VALUE;
+	    for (int i = 0; i < matriz.length; i++) {
+	        for (int j = 0; j < matriz[0].length; j++) {
+	            if (matriz[i][j] > maximo) {
+	                maximo = matriz[i][j];
+	            }
+	        }
+	    }
+	    return maximo;
+	}
+	
+	public int[][] sumarMatrices(int[][] matriz1, int[][] matriz2) {
+	    int filas = matriz1.length;
+	    int columnas = matriz1[0].length;
+	    int[][] resultado = new int[filas][columnas];
+	    for (int i = 0; i < filas; i++) {
+	        for (int j = 0; j < columnas; j++) {
+	            resultado[i][j] = matriz1[i][j] + matriz2[i][j];
+	        }
+	    }
+	    return resultado;
+	}
+	
+	public int[][] multiplicarPorEscalar(int[][] matriz, int escalar) {
+	    int filas = matriz.length;
+	    int columnas = matriz[0].length;
+	    int[][] resultado = new int[filas][columnas];
+	    for (int i = 0; i < filas; i++) {
+	        for (int j = 0; j < columnas; j++) {
+	            resultado[i][j] = matriz[i][j] * escalar;
+	        }
+	    }
+	    return resultado;
+	}
